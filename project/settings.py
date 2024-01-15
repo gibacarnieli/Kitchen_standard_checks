@@ -31,6 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+APPEND_SLASH=False
 
 ALLOWED_HOSTS = []
 
@@ -48,7 +49,9 @@ INSTALLED_APPS = [
     'users',
     'fridges',
     'meats',
-    'reviews'
+    'reviews',
+    'corsheaders',
+    'profiles'
 ]
 
 REST_FRAMEWORK = {
@@ -60,7 +63,7 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(days=1)
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=10)
 }
 
 MIDDLEWARE = [
@@ -71,7 +74,13 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+# AUTH_USER_MODEL = 'kitchen_standard_checks' 
 
 ROOT_URLCONF = 'project.urls'
 

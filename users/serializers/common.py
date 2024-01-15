@@ -27,6 +27,11 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
     
+class UserProfileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['username', 'bio']
+    
 class FridgeListUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
