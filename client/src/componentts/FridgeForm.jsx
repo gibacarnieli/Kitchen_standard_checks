@@ -10,7 +10,7 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
   const handleCreateFridge = async () => {
     try {
       const token = localStorage.getItem('SEI-76-KITCHEN-TOKEN');
-
+      
       // Step 1: Create the fridge
       const fridgeResponse = await axios.post(
         'http://localhost:8000/api/fridges/',
@@ -26,25 +26,27 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
           },
         }
       );
-
+  
       console.log('Fridge created successfully:', fridgeResponse.data);
-
-      // Step 2: Add a review to the created fridge
-      const reviewResponse = await axios.post(
-        `http://localhost:8000/api/fridges/${fridgeResponse.data.id}/reviews/`,
-        {
-          text: reviewText,
-        },
-        {
-          headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json',
+  
+      // Step 2: Add a review to the created fridge only if review text is provided
+      if (reviewText) {
+        const reviewResponse = await axios.post(
+          `http://localhost:8000/api/fridges/${fridgeResponse.data.id}/reviews/`,
+          {
+            text: reviewText,
           },
-        }
-      );
-
-      console.log('Review added successfully:', reviewResponse.data);
-
+          {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+  
+        console.log('Review added successfully:', reviewResponse.data);
+      }
+  
       // Trigger the callback to update the state with the newly created fridge
       onFridgeCreated(fridgeResponse.data);
     } catch (error) {
@@ -75,13 +77,13 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
           onChange={(e) => setDate(e.target.value)}
         />
 
-        {/* New input for review text */}
+        {/* New input for review text
         <label>Review:</label>
         <input
           type="text"
           value={reviewText}
           onChange={(e) => setReviewText(e.target.value)}
-        />
+        /> */}
 
         <button type="button" onClick={handleCreateFridge}>
           Create Fridge
@@ -92,3 +94,7 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
 };
 
 export default FridgeForm;
+
+
+
+

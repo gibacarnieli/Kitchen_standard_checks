@@ -1,14 +1,9 @@
-// Home.jsx
-
-
-import Login from './Login'; // Replace with the actual path to your LoginForm component
+import Login from './Login'; // Import your Login component
 import Register from './Register';
 
 export default function Home() {
   return (
     <>
-      {/* Your existing Slider or other introductory components go here */}
-      
       <div className="container">
         {/* Login Form */}
         <div className="mb-4">

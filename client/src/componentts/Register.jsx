@@ -1,25 +1,29 @@
-import { useEffect } from "react";
-import { Form, useActionData, useNavigate, Link } from "react-router-dom";
 
+import { Form, useActionData, useNavigate, Link } from "react-router-dom";
+import { registerUser } from "../utilities/actions/auth"; // Import your registerUser function
 
 export default function Register() {
+  const res = useActionData();
+  const navigate = useNavigate();
 
-  const res = useActionData()
-  console.log(res)
-  const navigate = useNavigate()
-
-  useEffect(() => {
-    if (res?.status === 201) {
-      navigate('/login')
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      // Get form data and make registration request
+      await registerUser(event.target);
+      // Check the response and navigate if successful
+      if (res?.status === 201) {
+        navigate('/login');
+      }
+    } catch (error) {
+      // Handle registration error if needed
+      console.error('Error during registration:', error.message);
     }
-  }, [res, navigate])
-
+  };
 
   return (
     <>
-
-      <Form method="post" className="registerform" >
-        {/* <img src={textregister} className="textregister"></img> */}
+      <Form method="post" className="registerform" onSubmit={handleSubmit}>
         <input className="registeruser" type="text" name="username" placeholder='Username' /><br />
         <input className="registeremail" type="email" name="email" placeholder='Email address' /><br />
         <input className="registerpass" type="password" name="password" placeholder='Password' /><br />
@@ -31,4 +35,7 @@ export default function Register() {
     </>
   );
 }
+
+
+
 

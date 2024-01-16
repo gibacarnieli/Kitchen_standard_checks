@@ -1,4 +1,4 @@
-// MeatForm.jsx
+
 import { useState } from 'react';
 import axios from 'axios';
 
@@ -8,15 +8,15 @@ const MeatForm = ({ ownerId, onMeatCreated }) => {
 
   const handleCreateMeat = async () => {
     try {
-      // Retrieve the authentication token from your storage (e.g., local storage)
-      const token = localStorage.getItem('SEI-76-KITCHEN-TOKEN'); 
+      const token = localStorage.getItem('SEI-76-KITCHEN-TOKEN');
 
-      const response = await axios.post(
+      // Step 1: Create the meat
+      const meatResponse = await axios.post(
         'http://localhost:8000/api/meats/',
         {
           meatName,
           temperature,
-          owner: ownerId, 
+          owner: ownerId, // Assuming ownerId is already a valid number
         },
         {
           headers: {
@@ -26,15 +26,19 @@ const MeatForm = ({ ownerId, onMeatCreated }) => {
         }
       );
 
-      console.log('Meat created successfully:', response.data);
+      console.log('Meat created successfully:', meatResponse.data);
 
-      // Notify the parent component (Profile.jsx) about the newly created meat
-      onMeatCreated(response.data);
+      // Trigger the callback to update the state with the newly created meat
+      onMeatCreated(meatResponse.data);
 
-      // Optionally, you can handle success, e.g., show a success message
+      // Clear the form fields after successful creation
+      setMeatName('');
+      setTemperature('');
     } catch (error) {
       console.error('Error creating meat:', error.message);
-      // Optionally, you can handle errors, e.g., show an error message
+      if (error.response && error.response.status === 400) {
+        console.log('Validation errors:', error.response.data);
+      }
     }
   };
 
@@ -50,7 +54,7 @@ const MeatForm = ({ ownerId, onMeatCreated }) => {
         />
         <label>Temperature:</label>
         <input
-          type="number"
+          type="text"
           value={temperature}
           onChange={(e) => setTemperature(e.target.value)}
         />
@@ -63,3 +67,7 @@ const MeatForm = ({ ownerId, onMeatCreated }) => {
 };
 
 export default MeatForm;
+
+
+
+
