@@ -1,0 +1,228 @@
+// .profile-title {
+//   // @include flex(column, center, center);
+//   text-align: center;
+// }
+
+// // .profile-bn-link {
+// //   @include flex(row, center, center);
+// // }
+
+// .edit-link {
+//   // @include button;
+//   padding: 1px 4px;
+//   margin-right: 1px;
+//   background-color: lightgreen;
+//   text-decoration: none;
+// }
+
+// .no-recipe {
+//   font-size: 20px;
+//   color: rgb(119, 105, 78);
+// }
+
+// .create-link {
+//   // @include button;
+//   padding: 5px;
+//   text-decoration: none;
+// }
+
+
+// .nav-toggle {
+//   background: none;
+//   border: none;
+//   cursor: pointer;
+//   span {
+//     height: 4px;
+//     display: block;
+//     width: 50px;
+//     background: #ede9e8;
+//     margin-bottom: 10px;
+//   }
+// }
+
+// .modal-header {
+//   flex-grow: 1;
+//   background: #9b9897;
+//   color: #FEE8B0;
+//   button {
+//     position: absolute;
+//     top: 2rem;
+//     right: 2rem;
+//     color: #FEE8B0;
+//   }
+//   nav {
+//     // @include flex(column, left, left);
+//     a, span, .logout {
+//       color: #3c4046;
+//       text-decoration: none;
+//       cursor: pointer;
+//       font-size: 3em;
+//     }
+//   }
+// }
+
+// .navbar{
+//   // @include flex(row-reverse, center, space-between);
+//   padding: 1.5em;
+//   background-color: #223257;
+// }
+
+// .link-container {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.profile-page {
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .fridge-box {
+    border: 1px solid #e0dddd;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+
+    h4 {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 5px;
+        }
+
+        button {
+          margin-top: 5px;
+          padding: 5px;
+          cursor: pointer;
+          background-color: #3498db;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: #2980b9;
+          }
+        }
+      }
+    }
+  }
+
+  .review-input {
+    margin-bottom: 10px;
+  }
+}
+
+.fridge-form {
+  margin-top: 20px;
+}
+
+.meats-box {
+  margin-top: 20px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 15px;
+
+      div {
+        display: flex;
+        flex-direction: column;
+
+        label {
+          margin-bottom: 5px;
+        }
+
+        button {
+          margin-top: 5px;
+          padding: 5px;
+          cursor: pointer;
+          background-color: #3498db;
+          color: #fff;
+          border: none;
+          border-radius: 3px;
+
+          &:hover {
+            background-color: #2980b9;
+          }
+        }
+      }
+    }
+  }
+}
+
+.meat-form {
+  margin-top: 20px;
+}
+
+.temperatures-container {
+  display: flex;
+  gap: 20px;
+}
+
+.fridges-container,
+.meats-container {
+  flex: 1;
+}
+
+.fridges-row,
+.meats-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.form-container {
+  width: 50px; // Adjust the width as needed
+  margin-right: 100px; // Adjust the right margin as needed
+}
+
+.fridge-box,
+.meats-box {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: calc(50% - 20px); // Adjust the width as needed
+
+  h4,
+  p {
+    font-size: 14px; // Adjust the font size as needed
+  }
+
+  .review-input {
+    margin-bottom: 10px;
+    font-size: 14px; // Adjust the font size as needed
+  }
+
+  .common-button {
+    font-size: 14px; // Adjust the font size as needed
+    margin-right: 10px; // Increase the right margin between buttons
+    margin-bottom: 10px; // Increase the bottom margin between buttons
+  }
+}
+
+.create-buttons {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,14 @@
+#error-page {
+  // @include flex-center(row);
+
+  p{
+    font-size: 80px;
+    text-align: center;
+    color: blue($color: #000000);
+  }
+}
+
+#root {
+  display: flex;
+  justify-content: space-between;
+}

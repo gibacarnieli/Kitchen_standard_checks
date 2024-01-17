@@ -1,0 +1,44 @@
+.custom-carousel {
+  padding-top: 2.5em;
+  margin: auto; 
+  width: 80%;
+}
+
+.d-block {
+  width: 100%;
+  height: calc(50vh - 56px);
+  object-fit: cover;
+  object-position: center;
+    @media (max-height: 900px) {
+      height: calc(45vh - 2em);
+    }
+    @media (max-height: 686px) {
+        height: calc(40vh - 2em);
+    }
+    @media (max-height: 576px) {
+      height: calc(35vh - 2em);
+}
+}
+
+.info {
+  h5, h6 {color: white;
+  font-weight: bold;
+  font-size: 15px;}
+
+  h6 {
+    font-size: 20px;
+  }
+}
+
+.textlogo{
+  width: 50%;
+}
+
+.textlogo_{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+

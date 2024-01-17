@@ -1,0 +1,25 @@
+// Register link
+.register-link {
+  color: #a69794;
+  font-weight: bold;
+}
+
+// Styling register form
+// .registerform{
+
+//   // @include flex-center(column)
+// }
+
+.textregister{
+  width: 30%;
+  margin-bottom: 80px;
+  margin-top: 800px;
+}
+
+.registeruser, 
+.registeremail,
+.registerpass,
+.registerpasscon {
+  @extend .form-input;
+}
+

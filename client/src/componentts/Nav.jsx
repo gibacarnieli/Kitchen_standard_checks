@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
-// Images
-// import logoIcon from '../images/logo-icon.png'
+import logoIcon from '../images/logo-png.png'
+
 
 // Bootstrap components
 import Modal from 'react-bootstrap/Modal'
@@ -27,7 +27,7 @@ export default function Nav() {
   return (
     <>
       <header className='navbar'>
-        {/* <Link to="/"><img className='logo-icon' src={logoIcon} alt="tasty palette logo" /></Link> */}
+      <Link to="/"><img className='logo-icon' src={logoIcon} alt="kitchen standard checks" /></Link>
         <button className='nav-toggle' onClick={() => setShow(true)}>
           <span></span>
           <span></span>
@@ -39,10 +39,8 @@ export default function Nav() {
         <Modal.Header closeButton>
           <nav onClick={() => setShow(false)} className='link-container'>
             <Link to="/">Home</Link>
-            <Link to="/fridges">Fridges</Link>
             { activeUser() ?
               <>                
-                <Link to="/fridges/create">Create</Link>
                 <Link to="/">Profile</Link>
                 <span className='logout' onClick={handleLogOut}>Log out</span>
               </>

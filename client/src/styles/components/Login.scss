@@ -1,0 +1,21 @@
+.login-form {
+  // @include flex-center(column);
+  width: 800px;
+  max-width: 80%;
+  margin: 2rem auto;
+
+  input, textarea {
+    @extend .form-input;
+  }
+}
+
+.textlogin {
+  width: 60%;
+  margin-bottom: 70px;
+  margin-top: 0px;
+  align-items: center;
+  text-decoration: none;
+}
+
+
+

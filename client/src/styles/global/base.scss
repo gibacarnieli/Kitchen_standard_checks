@@ -1,0 +1,28 @@
+body {
+  flex-grow: 1;
+  // color: blue($color: #000000);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+  background-color: rgb(206, 203, 203);
+}
+
+.centred {
+  // @extend %flex-fill;
+  justify-content: center;
+  align-items: center;
+}
+
+
+h1 {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  color: #FF7C5E;
+}

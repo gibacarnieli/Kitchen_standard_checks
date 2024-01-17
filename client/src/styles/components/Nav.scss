@@ -1,0 +1,49 @@
+.logo-icon {
+  width: 100px;
+  padding-right: 1em;
+}
+
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  span {
+    height: 4px;
+    display: block;
+    width: 50px;
+    background: #ede9e8;
+    margin-bottom: 10px;
+  }
+}
+
+.modal-header {
+  flex-grow: 1;
+  background: #9b9897;
+  color: #FEE8B0;
+  button {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    color: #FEE8B0;
+  }
+  nav {
+    // @include flex(column, left, left);
+    a, span, .logout {
+      color: #FEE8B0;
+      text-decoration: none;
+      cursor: pointer;
+      font-size: 3em;
+    }
+  }
+}
+
+.navbar{
+  // @include flex(row-reverse, center, space-between);
+  padding: 1.5em;
+  background-color: #223257;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,51 @@
+.form-input {
+  height: 30px;
+  width: 300px;
+  font-size: 20px;
+  background-color: #eceae6;
+  border-radius: 10px;
+  border: none;
+  padding: 20px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.danger{
+  color: red;
+  width: 50%;
+}
+
+// Register and login button formatting and behaviours
+.reg-login-btn {
+  // @include button;
+  font-size: 20px;
+  height: 50px;
+  width: 150px;
+}
+
+.register, .login {
+  color: #16240e;
+}
+
+.reg-login-btn:hover {
+  background-color: #444a57; /* Change color on hover */
+  color: #585755;
+}
+
+.reg-login-btn:active {
+  transform: translate(1px, 1px); /* Move button 2px down on click */
+}
+
+.reg-login-link:hover {
+  background-color: #9CA777; /* Change color on hover */
+  color: #62686e;
+}
+
+p {
+  a, span {
+    text-decoration: none;
+    color: blue($color: #000000);
+    font-weight: bold;
+  }
+}
+

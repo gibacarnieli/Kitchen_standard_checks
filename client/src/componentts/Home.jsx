@@ -12,11 +12,11 @@ export default function Home() {
         </div>
 
         {/* Registration Form */}
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <h2>Register</h2>
-          <Register />
+          <Register /> */}
         </div>
-      </div>
+      {/* </div> */}
     </>
   );
 }
