@@ -2,7 +2,7 @@
   // @include flex-center(column);
   width: 800px;
   max-width: 80%;
-  margin: 2rem auto;
+  
 
   input, textarea {
     @extend .form-input;
@@ -11,8 +11,8 @@
 
 .textlogin {
   width: 60%;
-  margin-bottom: 70px;
-  margin-top: 0px;
+  margin-bottom: 90px;
+  margin-top: 10px;
   align-items: center;
   text-decoration: none;
 }

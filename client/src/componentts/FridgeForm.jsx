@@ -5,7 +5,7 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
   const [fridgeNumber, setFridgeNumber] = useState('');
   const [temperature, setTemperature] = useState('');
   const [date, setDate] = useState('');
-  const [reviewText, setReviewText] = useState(''); // New state for review text
+  const [reviewText] = useState(''); // New state for review text
 
   const handleCreateFridge = async () => {
     try {
@@ -76,15 +76,6 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
           value={date}
           onChange={(e) => setDate(e.target.value)}
         />
-
-        {/* New input for review text
-        <label>Review:</label>
-        <input
-          type="text"
-          value={reviewText}
-          onChange={(e) => setReviewText(e.target.value)}
-        /> */}
-
         <button type="button" onClick={handleCreateFridge}>
           Create Fridge
         </button>
@@ -94,6 +85,12 @@ const FridgeForm = ({ ownerId, onFridgeCreated }) => {
 };
 
 export default FridgeForm;
+
+
+
+
+
+
 
 
 

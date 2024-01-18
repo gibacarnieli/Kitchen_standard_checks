@@ -72,7 +72,7 @@ export default function Login() {
         <button className='reg-login-btn' type="submit">Login</button><br /><br />
         {res && <p className='danger'>{res.data.message}</p>}
         <p className="login">
-          Dont have an account?{'\u00a0'} <Link to="/register"><span className="reg-login-link"> Register here</span></Link>
+          Don't have an account?{'\u00a0'} <Link to="/register"><span className="reg-login-link"> Register here</span></Link>
         </p>
       </Form>
     </>

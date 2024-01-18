@@ -49,7 +49,7 @@ export async function registerUser(request) {
   try {
     const data = await formToObj(request);
     const response = await axios.post('http://localhost:8000/api/auth/register/', data);
-    console.log(response); // Log the entire response for debugging
+    console.log(response); 
     return response;
   } catch (error) {
     handleAuthError(error);
@@ -60,7 +60,7 @@ export async function loginUser(request) {
   try {
     const data = await formToObj(request);
     const response = await axios.post('http://localhost:8000/api/auth/login/', data);
-    console.log(response); // Log the entire response for debugging
+    console.log(response); 
     return response;
   } catch (error) {
     handleAuthError(error);
@@ -79,10 +79,10 @@ async function formToObj(request) {
 
 function handleAuthError(error) {
   if (axios.isAxiosError(error)) {
-    // Handle Axios errors (e.g., network issues)
+    
     console.error('Network error:', error);
   } else {
-    // Handle other errors
+    
     console.error('Authentication error:', error);
   }
   throw error;

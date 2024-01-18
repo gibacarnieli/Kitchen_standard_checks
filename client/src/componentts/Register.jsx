@@ -1,19 +1,27 @@
 
-import { Form, useActionData, useNavigate, Link } from "react-router-dom";
-import { registerUser } from "../utilities/actions/auth"; // Import your registerUser function
+import { useState } from "react";
+import { Form, useNavigate, Link } from "react-router-dom";
+import { registerUser } from "../utilities/actions/auth";
 
 export default function Register() {
-  const res = useActionData();
+  const [registrationResult, setRegistrationResult] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       // Get form data and make registration request
-      await registerUser(event.target);
-      // Check the response and navigate if successful
-      if (res?.status === 201) {
+      const response = await registerUser(event.target);
+
+      // Store the registration result in the local state
+      setRegistrationResult(response);
+
+      // Check the response status and navigate if successful
+      if (response.status === 201) {
         navigate('/login');
+      } else {
+        // Handle other scenarios, show error message, etc.
+        console.error('Registration failed:', response.data.message);
       }
     } catch (error) {
       // Handle registration error if needed
@@ -23,6 +31,7 @@ export default function Register() {
 
   return (
     <>
+      <h2>Register</h2>
       <Form method="post" className="registerform" onSubmit={handleSubmit}>
         <input className="registeruser" type="text" name="username" placeholder='Username' /><br />
         <input className="registeremail" type="email" name="email" placeholder='Email address' /><br />
@@ -30,12 +39,11 @@ export default function Register() {
         <input className="registerpasscon" type="password" name="password_confirmation" placeholder='Confirm password' /><br /><br />
         <button className="reg-login-btn" type="submit">Register</button><br /><br />
         <p className="register">Already have an account?{'\u00a0'} <Link to="/login"><span className='reg-login-link'> Login</span></Link></p>
-        {res && <p className="danger">{res.data.message}</p>}
+        {registrationResult && <p className="danger">{registrationResult.data.message}</p>}
       </Form>
     </>
   );
 }
-
 
 
 

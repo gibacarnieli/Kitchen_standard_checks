@@ -1,4 +1,4 @@
-// FridgePage.jsx
+
 
 import FridgeForm from './FridgeForm';
 import FridgeList from './FridgeList';
