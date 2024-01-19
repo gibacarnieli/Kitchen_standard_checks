@@ -6,7 +6,7 @@ import { activeUser } from '../utilities/helpers/common';
 import FridgeForm from './FridgeForm';
 import MeatForm from './MeatForm';
 
-import '../styles/components/Profile.scss'
+import '../styles/components/Profile.scss';
 
 const Profile = () => {
   const [fridges, setFridges] = useState([]);
@@ -67,6 +67,17 @@ const Profile = () => {
     fetchReviews();
   }, [navigate, forceUpdate]);
 
+  useEffect(() => {
+    if (editableMeatId) {
+      const selectedMeat = meats.find((meat) => meat.id === editableMeatId);
+
+      setUpdatedMeatData({
+        meatName: selectedMeat?.meatName || '',
+        temperature: selectedMeat?.temperature || '',
+      });
+    }
+  }, [editableMeatId, meats]);
+
   const handleFridgeCreated = async (newFridge) => {
     if (newFridge.owner && newFridge.owner.id === profileId) {
       try {
@@ -106,7 +117,7 @@ const Profile = () => {
         },
         {
           headers: {
-            'Authorization': `Bearer ${token}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json',
           },
         }
@@ -127,7 +138,7 @@ const Profile = () => {
 
       await axios.delete(`http://localhost:8000/api/reviews/${formattedReviewId}/`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -144,7 +155,7 @@ const Profile = () => {
 
       await axios.delete(`http://localhost:8000/api/fridges/${formattedFridgeId}/`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -162,7 +173,7 @@ const Profile = () => {
 
       await axios.delete(`http://localhost:8000/api/meats/${formattedMeatId}/`, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -178,43 +189,44 @@ const Profile = () => {
       const token = localStorage.getItem('SEI-76-KITCHEN-TOKEN');
       const formattedMeatId = String(meatId);
 
-      // Send a PATCH or PUT request to update the meat record
       await axios.patch(`http://localhost:8000/api/meats/${formattedMeatId}/`, updatedData, {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
         },
       });
 
       console.log('Meat record updated successfully:', meatId);
 
-      // Fetch updated meats data to refresh the UI
       const updatedMeatsResponse = await axios.get(`http://localhost:8000/api/meats/?owner=${profileId}`);
       setMeats(updatedMeatsResponse.data);
 
       setEditableMeatId(null);
       setUpdatedMeatData({
         meatName: '',
-        temperature: '', // Reset the updated data
+        temperature: '',
       });
     } catch (error) {
       console.error('Error updating meat record:', error.message);
-      // Handle error as needed
     }
   };
 
   if (loading) {
     return <p>Loading...</p>;
   }
-  
 
   return (
     <div className="profile-page">
-      <h2>Welcome Back, {username}!</h2>
+      <h2>Welcome Back!</h2>
+      
 
       <div className="create-buttons">
         <FridgeForm ownerId={profileId} onFridgeCreated={handleFridgeCreated} />
-        <MeatForm ownerId={profileId} onMeatCreated={handleMeatCreated} />
+        <MeatForm
+          ownerId={profileId}
+          onMeatCreated={handleMeatCreated}
+          defaultValues={updatedMeatData}
+        />
       </div>
 
       <div className="temperatures-container">
@@ -305,14 +317,6 @@ const Profile = () => {
 };
 
 export default Profile;
-
-
-
-
-
-
-
-
 
 
 

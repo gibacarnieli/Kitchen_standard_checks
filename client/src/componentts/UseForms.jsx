@@ -24,7 +24,7 @@ export default function LoginForm({ setUser, handleCloseLogin, handleShowRegiste
   const login = async (formData) => {
     try {
       setLoading(true);
-      const response = await axios.post('/api/auth/login/', formData);
+      const response = await axios.post('http://your-api-domain/api/auth/login/', formData);
 
       // Check the structure of your response to determine success
       if (response.data.success) {
