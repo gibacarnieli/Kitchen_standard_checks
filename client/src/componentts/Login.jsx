@@ -16,22 +16,12 @@ export default function Login() {
         const userId = res.data.user_id;
         const username = res.data.username;
         const authToken = res.data.token;
-        console.log('Logged In User ID:', userId);
-        console.log('Logged In Username:', username);
+
 
         // Set user information in localStorage
         localStorage.setItem('SEI-76-KITCHEN-USERID', userId);
         localStorage.setItem('SEI-76-KITCHEN-USERNAME', username);
-        localStorage.setItem('SEI-76-KITCHEN-AUTH-TOKEN', authToken);
-
-        console.log('User ID in localStorage:', localStorage.getItem('SEI-76-KITCHEN-USERID'));
-        console.log('Username in localStorage:', localStorage.getItem('SEI-76-KITCHEN-USERNAME'));    
-
-        console.log('Stored data:', {
-          userId: localStorage.getItem('SEI-76-KITCHEN-USERID'),
-          username: localStorage.getItem('SEI-76-KITCHEN-USERNAME'),
-          authToken: localStorage.getItem('SEI-76-KITCHEN-AUTH-TOKEN'),
-        });
+        localStorage.setItem('SEI-76-KITCHEN-AUTH-TOKEN', authToken);  
 
         navigate('/profile'); // Redirect to the profile page
       } 
