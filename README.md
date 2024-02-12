@@ -130,7 +130,7 @@ The most significant bug I encountered was related to the review functionality, 
 
 Also had a bug for displaying the name of the user, it's related to the beck server that I filled up, but, as I ran out of time, I couldn’t finish this implementation.
 
-## Future Improvments
+## Future Improvements
 
 Enable users to modify their password, username, or email.
 Implement a text saying that the password or email don’t match.
